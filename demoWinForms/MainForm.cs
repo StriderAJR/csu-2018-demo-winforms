@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace demoWinForms
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         RectangleControl cRectangle;
         int recSide = 30;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             cRectangle = new RectangleControl(this, 10, 10, recSide, recSide);
@@ -24,7 +24,6 @@ namespace demoWinForms
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            cRectangle.Invalidate();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -40,7 +39,7 @@ namespace demoWinForms
                 case Keys.D:
                 case Keys.Right: cRectangle.Move(30, 0); break;
             }
-            this.Invalidate();
+            cRectangle.Invalidate();
         }
     }
 }

@@ -44,10 +44,15 @@ namespace demoWinForms
             timer.Start();
         }
 
-        public void Move(int deltaX, int deltaY)
-        {
-            this.rectangle.X += deltaX;
-            this.rectangle.Y += deltaY;
+        public void Move(int deltaX, int deltaY) {
+            if (rectangle.X + deltaX > this.Width) rectangle.X = 0;
+            else if (rectangle.X + deltaX < 0) rectangle.X = this.Width - rectangle.Width;
+            else rectangle.X += deltaX;
+
+            if (rectangle.Y + deltaY > this.Height) rectangle.Y = 0;
+            else if (rectangle.Y + deltaY < 0) rectangle.Y = this.Height - rectangle.Height;
+            else rectangle.Y += deltaY;
+
             this.parent.Invalidate();
         }
 
