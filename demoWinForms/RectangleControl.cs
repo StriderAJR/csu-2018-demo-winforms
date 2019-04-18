@@ -18,7 +18,7 @@ namespace demoWinForms
         Color[] colors;
         int iColor = 0;
         Timer timer = new Timer();
-        Pen blackPen = new Pen(Color.Black, 2);
+        Pen pen = new Pen(Color.Black, 2);
         Brush brush = new SolidBrush(Color.Black);
         bool forward = true;
 
@@ -61,7 +61,7 @@ namespace demoWinForms
         {
             brush = new SolidBrush(colors[iColor]);
             graphics.FillRectangle(brush, rectangle);
-            graphics.DrawRectangle(blackPen, rectangle);
+            graphics.DrawRectangle(pen, rectangle);
         }
     }
 }
