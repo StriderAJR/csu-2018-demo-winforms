@@ -32,12 +32,13 @@ namespace demoWinForms
             switch (e.KeyCode)
             {   
                 case Keys.W:     cRectangle1.Move(0, -recSide); break;
-                case Keys.Up:    cRectangle2.Move(0, -recSide); break;
                 case Keys.S:     cRectangle1.Move(0, recSide);  break;
-                case Keys.Down:  cRectangle2.Move(0, recSide);  break;
                 case Keys.A:     cRectangle1.Move(-recSide, 0); break;
-                case Keys.Left:  cRectangle2.Move(-recSide, 0); break;
                 case Keys.D:     cRectangle1.Move(recSide, 0);  break;
+
+                case Keys.Up:    cRectangle2.Move(0, -recSide); break;
+                case Keys.Down:  cRectangle2.Move(0, recSide);  break;
+                case Keys.Left:  cRectangle2.Move(-recSide, 0); break;
                 case Keys.Right: cRectangle2.Move(recSide, 0);  break;
             }
             this.Invalidate();
