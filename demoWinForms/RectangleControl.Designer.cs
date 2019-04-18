@@ -37,7 +37,6 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Name = "RectangleControl";
             this.Size = new System.Drawing.Size(300, 300);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.RectangleControl_Paint);
             this.ResumeLayout(false);
 
         }

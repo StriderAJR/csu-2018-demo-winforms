@@ -20,14 +20,11 @@ namespace demoWinForms
             cRectangle1 = new RectangleControl(this, 0, 0, recSide, recSide, new[] { Color.Red, Color.Yellow, Color.Green }, 0, 0);
             cRectangle2 = new RectangleControl(this, 50, 50, recSide, recSide, new[] { Color.Black, Color.White, Color.Blue }, 200, 0);
             this.KeyPreview = true;
-
-            
-            this.Controls.Add(cRectangle2);
-            this.Controls.Add(cRectangle1);
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
+        private void Form1_Paint(object sender, PaintEventArgs e) {
+            cRectangle1.Draw(e.Graphics);
+            cRectangle2.Draw(e.Graphics);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -43,8 +40,7 @@ namespace demoWinForms
                 case Keys.D: cRectangle1.Move(recSide, 0); break;
                 case Keys.L: cRectangle2.Move(recSide, 0);  break;
             }
-            cRectangle1.Invalidate();
-            cRectangle2.Invalidate();
+            this.Invalidate();
         }
     }
 }

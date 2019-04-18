@@ -22,22 +22,6 @@ namespace demoWinForms
         Brush brush = new SolidBrush(Color.Black);
         bool forward = true;
 
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
-                return cp;
-            }
-        }
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            // base.OnPaintBackground(e);
-            Brush backBrush = new SolidBrush(Color.FromArgb(0, 255, 0, 0));
-            e.Graphics.FillRectangle(backBrush, 0, 0, Width, Height);
-        }
-
         public RectangleControl(Form parent, int startX, int startY, int width, int height, Color[] colors, int x, int y)
         {
             InitializeComponent();
@@ -45,7 +29,6 @@ namespace demoWinForms
             this.colors = colors;
             this.Width = parent.Width;
             this.Height = parent.Height;
-            this.BackColor = Color.FromArgb(0, 255, 0, 0);
 
             this.rectangle = new Rectangle(startX, startY, width, height);
 
@@ -57,7 +40,7 @@ namespace demoWinForms
 
                 if (iColor == colors.Length-1) forward = false;
                 if (iColor == 0) forward = true;
-                this.Invalidate();
+                parent.Invalidate();
             };
             timer.Start();
         }
@@ -71,14 +54,14 @@ namespace demoWinForms
             else if (rectangle.Y + deltaY < 0) rectangle.Y = this.Height - rectangle.Height;
             else rectangle.Y += deltaY;
 
-            this.Invalidate();
+            parent.Invalidate();
         }
 
-        private void RectangleControl_Paint(object sender, PaintEventArgs e)
+        public void Draw(Graphics graphics)
         {
             brush = new SolidBrush(colors[iColor]);
-            e.Graphics.FillRectangle(brush, rectangle);
-            e.Graphics.DrawRectangle(blackPen, rectangle);
+            graphics.FillRectangle(brush, rectangle);
+            graphics.DrawRectangle(blackPen, rectangle);
         }
     }
 }
