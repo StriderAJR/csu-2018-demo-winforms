@@ -22,7 +22,7 @@ namespace demoWinForms
         Brush brush = new SolidBrush(Color.Black);
         bool forward = true;
 
-        public RectangleControl(Form parent, int startX, int startY, int width, int height, Color[] colors, int x, int y)
+        public RectangleControl(Form parent, int startX, int startY, int width, int height, Color[] colors)
         {
             InitializeComponent();
             this.parent = parent;

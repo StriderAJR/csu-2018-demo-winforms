@@ -17,8 +17,8 @@ namespace demoWinForms
         public MainForm()
         {
             InitializeComponent();
-            cRectangle1 = new RectangleControl(this, 0, 0, recSide, recSide, new[] { Color.Red, Color.Yellow, Color.Green }, 0, 0);
-            cRectangle2 = new RectangleControl(this, 50, 50, recSide, recSide, new[] { Color.Black, Color.White, Color.Blue }, 200, 0);
+            cRectangle1 = new RectangleControl(this, 0, 0, recSide, recSide, new[] { Color.Red, Color.Yellow, Color.Green });
+            cRectangle2 = new RectangleControl(this, 50, 50, recSide, recSide, new[] { Color.Black, Color.White, Color.Blue });
             this.KeyPreview = true;
         }
 
